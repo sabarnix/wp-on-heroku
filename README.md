@@ -16,3 +16,4 @@
 - DW Minion(http://www.designwall.com/wordpress/themes/dw-minion/)
 - DW Timeline(http://www.designwall.com/wordpress/themes/dw-timeline/)
 - Bushwick(https://wordpress.org/themes/bushwick/)
+- ARCHITEKT(http://dessign.net/architekt-theme/)
