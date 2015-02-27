@@ -87,3 +87,6 @@ require_once(ABSPATH . 'wp-settings.php');
 // ** Sendgrid settings - from Heroku Environment ** //
 define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME'));
 define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD'));
+
+// ** Batcache settings - from Heroku Environment ** //
+define('WP_CACHE', getenv('WP_CACHE'));
