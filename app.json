@@ -15,39 +15,39 @@
   "scripts": {},
   "env": {
     "AUTH_KEY": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "AUTH_SALT": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "LOGGED_IN_KEY": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "LOGGED_IN_SALT": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "NONCE_KEY": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "NONCE_SALT": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "SECURE_AUTH_KEY": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "SECURE_AUTH_SALT": {
-      "description": "for wordpress config",
+      "description": "for Wordpress Authentication",
       "generator": "secret"
     },
     "WP_CACHE": {
-      "description": "for Batcache",
+      "description": "for Batcache (boolean)",
       "value": "True"
     }
   },
