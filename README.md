@@ -5,18 +5,12 @@ using with PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 [![Deploy](https://blog.logentries.com/wp-content/uploads/2014/09/deploy-to-heroku.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
 
 
-## One Click Installation
-Register Heroku account
-[Heroku | Sign up](https://signup.heroku.com/www-header)
-
-Verify your credit info *Required
-[Account Verification | Heroku](https://devcenter.heroku.com/articles/account-verification#verification-requirement)
-
-Click Deploy to Heroku button
+## One Click Installation *Totally Free:free:
+Register [Heroku account](https://signup.heroku.com/www-header) and [Verify your credit info](https://devcenter.heroku.com/articles/account-verification#verification-requirement), then Click this button:point_down:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
 
-done...finish!
+done...finish!:tada:
 
 
 ## Installation for Developers
