@@ -1,13 +1,25 @@
 # Wordpress on Heroku
 
-using PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
+using with PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 
-## One Click Deploy to Heroku
+[![Deploy](https://blog.logentries.com/wp-content/uploads/2014/09/deploy-to-heroku.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
+
+
+## One Click Installation
+Register Heroku account
+[Heroku | Sign up](https://signup.heroku.com/www-header)
+
+Verify your credit info *Required
+[Account Verification | Heroku](https://devcenter.heroku.com/articles/account-verification#verification-requirement)
+
+Click Deploy to Heroku button
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
 
-*required credit card
+done...finish!
 
-## for Developers
+
+## Installation for Developers
 Clone the repository from Github
 
 ```
@@ -28,7 +40,7 @@ $ rm wp-content/mu-plugins/force.php
 
 Develop!
 
-Set config to Heroku
+Set config to Heroku, use [generator](https://api.wordpress.org/secret-key/1.1/salt/)
 
 ```
 AUTH_KEY:                   xxxxxxxxxx
