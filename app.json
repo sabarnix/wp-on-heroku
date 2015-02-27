@@ -9,7 +9,7 @@
     "Sendgrid"
   ],
   "website": "https://github.com/ya-s-u/wp-on-heroku",
-  "repository": "https://github.com/ya-s-u/wp-on-heroku",
+  "repository": "https://github.com/ya-s-u/wp-on-heroku/tree/production",
   "logo": "https://s.w.org/about/images/logos/wordpress-logo-stacked-rgb.png",
   "success_url": "/",
   "scripts": {},
