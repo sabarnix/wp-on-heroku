@@ -1,6 +1,6 @@
 {
   "require": {
-    "hhvm": "*",
+    "php": "*",
     "ext-gd": "*",
     "ext-mbstring": "*",
     "ext-memcached": "*"
