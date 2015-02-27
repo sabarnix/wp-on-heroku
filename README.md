@@ -4,6 +4,7 @@ using PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 
 ## One Click Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
+
 *required credit card
 
 ## for Developers
