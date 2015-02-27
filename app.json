@@ -54,7 +54,7 @@
   "addons": [
     "cloudinary",
     "papertrail",
-    "postgresql",
+    "heroku-postgresql",
     "memcachedcloud",
     "sendgrid",
     "pgstudio",
