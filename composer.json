@@ -3,6 +3,7 @@
     "php": "*",
     "ext-gd": "*",
     "ext-mbstring": "*",
-    "ext-memcached": "*"
+    "ext-memcached": "*",
+    "ext-newrelic": "*"
   }
 }
