@@ -97,12 +97,41 @@ Default:Disable
 
 ### 10-Themes
 - Hueman(http://alxmedia.se/themes/hueman/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/hueman/screenshot.png)
+
 - Fukasawa(http://www.andersnoren.se/teman/fukasawa-wordpress-theme/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/fukasawa/screenshot.png)
+
 - PORTFOLIO WORDPRESS THEME(https://www.gavick.com/wordpress-themes/portfolio,174)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/gk-portfolio/screenshot.png)
+
 - Griffin(https://wordpress.org/themes/griffin/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/griffin/screenshot.png)
+
 - Pure(http://www.gt3themes.com/wordpress-themes/pure/)
-- OnesieFree(http://justfreethemes.com/onesie-free-wordpress-theme/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/gt3-wp-pure/screenshot.png)
+
+- Clippy(http://www.s5themes.com/theme/clippy/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/clippy/screenshot.jpg)
+
 - DW Minion(http://www.designwall.com/wordpress/themes/dw-minion/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/dw-minion/screenshot.png)
+
 - DW Timeline(http://www.designwall.com/wordpress/themes/dw-timeline/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/dw-timeline/screenshot.png)
+
 - Bushwick(https://wordpress.org/themes/bushwick/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/bushwick/screenshot.png)
+
 - ARCHITEKT(http://dessign.net/architekt-theme/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/architekttheme/screenshot.jpg)
