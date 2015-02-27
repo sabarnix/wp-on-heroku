@@ -83,3 +83,7 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+// ** Sendgrid settings - from Heroku Environment ** //
+define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME'));
+define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD'));
