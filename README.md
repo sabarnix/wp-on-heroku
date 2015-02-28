@@ -5,7 +5,7 @@ using with PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 [![Deploy](https://blog.logentries.com/wp-content/uploads/2014/09/deploy-to-heroku.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
 
 
-## One Click Installation *Totally Free
+## One Click Installation *Basically Free
 Register [Heroku account](https://signup.heroku.com/www-header) and [Verify your credit info](https://devcenter.heroku.com/articles/account-verification#verification-requirement), then Click this button:point_down:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
@@ -14,7 +14,7 @@ done...finish! :tada::tada::tada:
 
 
 ## Installation for Developers
-Clone the repository
+Clone this repository
 
 ```
 $ git clone git://github.com/ya-s-u/wp-on-heroku.git
@@ -26,26 +26,37 @@ Checkout branch
 $ git checkout production
 ```
 
-Remove ``wp-content/mu-plugins/force.php``
+Delete ``force.php`` file 
 
 ```
 $ rm wp-content/mu-plugins/force.php
 ```
 
-Develop!
-
-Set config to Heroku, use [generator](https://api.wordpress.org/secret-key/1.1/salt/)
+Set configure to Heroku, use [generator](https://api.wordpress.org/secret-key/1.1/salt/)
 
 ```
-AUTH_KEY:                   xxxxxxxxxx
-AUTH_SALT:                  xxxxxxxxxx
-LOGGED_IN_KEY:              xxxxxxxxxx
-LOGGED_IN_SALT:             xxxxxxxxxx
-NONCE_KEY:                  xxxxxxxxxx
-NONCE_SALT:                 xxxxxxxxxx
-SECURE_AUTH_KEY:            xxxxxxxxxx
-SECURE_AUTH_SALT:           xxxxxxxxxx
-WP_CACHE:                   True
+heroku config:set AUTH_KEY='xxxxx' \
+  SECURE_AUTH_KEY='xxxxx' \
+  LOGGED_IN_KEY='xxxxx' \
+  NONCE_KEY='xxxxx' \
+  AUTH_SALT='xxxxx' \
+  SECURE_AUTH_SALT='xxxxx' \
+  LOGGED_IN_SALT='xxxxx' \
+  NONCE_SALT='xxxxx' \
+  WP_CACHE='True'
+```
+
+Add Heroku addons
+
+```
+$ heroku addons:add heroku-postgresql
+$ heroku addons:add pgbackups:auto-week
+$ heroku addons:add pgstudio
+$ heroku addons:add memcachedcloud
+$ heroku addons:add cloudinary
+$ heroku addons:add sendgrid
+$ heroku addons:add newrelic
+$ heroku addons:add papertrail
 ```
 
 Deploy to Heroku
