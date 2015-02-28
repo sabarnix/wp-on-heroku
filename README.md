@@ -14,7 +14,7 @@ done...finish! :tada::tada::tada:
 
 
 ## Installation for Developers
-Clone this repository
+Clone this repository, and Create your [Heroku App](https://heroku.com)
 
 ```
 $ git clone git://github.com/ya-s-u/wp-on-heroku.git
@@ -35,7 +35,7 @@ $ rm wp-content/mu-plugins/force.php
 Set configure to Heroku, use [generator](https://api.wordpress.org/secret-key/1.1/salt/)
 
 ```
-heroku config:set AUTH_KEY='xxxxx' \
+$ heroku config:set AUTH_KEY='xxxxx' \
   SECURE_AUTH_KEY='xxxxx' \
   LOGGED_IN_KEY='xxxxx' \
   NONCE_KEY='xxxxx' \
