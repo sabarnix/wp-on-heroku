@@ -16,7 +16,9 @@
     "platform": {
         "php": "*",
         "ext-gd": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+		"ext-memcached": "*",
+		"ext-newrelic": "*"
     },
     "platform-dev": []
 }
