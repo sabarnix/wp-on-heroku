@@ -1,138 +1,154 @@
-# WordPress Heroku
+# Wordpress on Heroku
 
-This project is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/). The repository comes bundled with:
-* [PostgreSQL for WordPress](http://wordpress.org/extend/plugins/postgresql-for-wordpress/)
-* [Amazon S3 and Cloudfront](https://wordpress.org/plugins/amazon-s3-and-cloudfront/)
-* [WP Sendgrid](https://wordpress.org/plugins/wp-sendgrid/)
-* [Wordpress HTTPS](https://wordpress.org/plugins/wordpress-https/)
+using with PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 
-## Installation
+[![Deploy](https://blog.logentries.com/wp-content/uploads/2014/09/deploy-to-heroku.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
 
-Clone the repository from Github
 
-    $ git clone git://github.com/mhoofman/wordpress-heroku.git
+## One Click Installation *Basically Free
+Register [Heroku account](https://signup.heroku.com/www-header) and [Verify your credit info](https://devcenter.heroku.com/articles/account-verification#verification-requirement), then Click this button:point_down:
 
-With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
 
-    $ cd wordpress-heroku
-    $ heroku create
-    Creating strange-turtle-1234... done, stack is cedar
-    http://strange-turtle-1234.herokuapp.com/ | git@heroku.com:strange-turtle-1234.git
-    Git remote heroku added
+done...finish! :tada::tada::tada:
 
-Add a database to your app
 
-    $ heroku addons:add heroku-postgresql:dev
-    Adding heroku-postgresql:dev to strange-turtle-1234... done, v2 (free)
-    Attached as HEROKU_POSTGRESQL_COLOR
-    Database has been created and is available
-    Use `heroku addons:docs heroku-postgresql:dev` to view documentation
+## Installation for Developers
+Clone this repository, and Create your [Heroku App](https://heroku.com)
 
-Promote the database (replace COLOR with the color name from the above output)
+```
+$ git clone git://github.com/ya-s-u/wp-on-heroku.git
+```
 
-    $ heroku pg:promote HEROKU_POSTGRESQL_COLOR
-    Promoting HEROKU_POSTGRESQL_COLOR to DATABASE_URL... done
+Checkout branch
 
-Add the ability to send email (i.e. Password Resets etc)
+```
+$ git checkout production
+```
 
-    $ heroku addons:add sendgrid:starter
-    Adding sendgrid:starter on your-app... done, v14 (free)
-    Use `heroku addons:docs sendgrid` to view documentation.
+Delete ``force.php`` file 
 
-Create a new branch for any configuration/setup changes needed
+```
+$ rm wp-content/mu-plugins/force.php
+```
 
-    $ git checkout -b production
+Set configure to Heroku, use [generator](https://api.wordpress.org/secret-key/1.1/salt/)
 
-Store unique keys and salts in Heroku environment variables. Wordpress can provide random values [here](https://api.wordpress.org/secret-key/1.1/salt/).
+```
+$ heroku config:set AUTH_KEY='xxxxx' \
+  SECURE_AUTH_KEY='xxxxx' \
+  LOGGED_IN_KEY='xxxxx' \
+  NONCE_KEY='xxxxx' \
+  AUTH_SALT='xxxxx' \
+  SECURE_AUTH_SALT='xxxxx' \
+  LOGGED_IN_SALT='xxxxx' \
+  NONCE_SALT='xxxxx' \
+  WP_CACHE='True'
+```
 
-    heroku config:set AUTH_KEY='put your unique phrase here' \
-      SECURE_AUTH_KEY='put your unique phrase here' \
-      LOGGED_IN_KEY='put your unique phrase here' \
-      NONCE_KEY='put your unique phrase here' \
-      AUTH_SALT='put your unique phrase here' \
-      SECURE_AUTH_SALT='put your unique phrase here' \
-      LOGGED_IN_SALT='put your unique phrase here' \
-      NONCE_SALT='put your unique phrase here'
+Add Heroku addons
+
+```
+$ heroku addons:add heroku-postgresql
+$ heroku addons:add pgbackups:auto-week
+$ heroku addons:add pgstudio
+$ heroku addons:add memcachedcloud
+$ heroku addons:add cloudinary
+$ heroku addons:add sendgrid
+$ heroku addons:add newrelic
+$ heroku addons:add papertrail
+```
 
 Deploy to Heroku
 
-    $ git push heroku production:master
-    -----> Deleting 0 files matching .slugignore patterns.
-    -----> PHP app detected
-
-     !     WARNING: No composer.json found.
-           Using index.php to declare PHP applications is considered legacy
-           functionality and may lead to unexpected behavior.
-
-    -----> No runtime requirements in composer.json, defaulting to PHP 5.6.2.
-    -----> Installing system packages...
-           - PHP 5.6.2
-           - Apache 2.4.10
-           - Nginx 1.6.0
-    -----> Installing PHP extensions...
-           - zend-opcache (automatic; bundled, using 'ext-zend-opcache.ini')
-    -----> Installing dependencies...
-           Composer version 1.0-dev (ffffab37a294f3383c812d0329623f0a4ba45387) 2014-11-05 06:04:18
-           Loading composer repositories with package information
-           Installing dependencies
-           Nothing to install or update
-           Generating optimized autoload files
-    -----> Preparing runtime environment...
-           NOTICE: No Procfile, defaulting to 'web: vendor/bin/heroku-php-apache2'
-    -----> Discovering process types
-           Procfile declares types -> web
-
-    -----> Compressing... done, 78.5MB
-    -----> Launcing... done, v5
-           http://strange-turtle-1234.herokuapp.com deployed to Heroku
-
-    To git@heroku:strange-turtle-1234.git
-      * [new branch]    production -> master
-
-After deployment WordPress has a few more steps to setup and thats it!
-
-## Usage
-
-Because a file cannot be written to Heroku's file system, updating and installing plugins or themes should be done locally and then pushed to Heroku.
-
-## Updating
-
-Updating your WordPress version is just a matter of merging the updates into
-the branch created from the installation.
-
-    $ git pull # Get the latest
-
-Using the same branch name from our installation:
-
-    $ git checkout production
-    $ git merge master # Merge latest
-    $ git push heroku production:master
-
-WordPress needs to update the database. After push, navigate to:
-
-    http://your-app-url.herokuapp.com/wp-admin
-
-WordPress will prompt for updating the database. After that you'll be good
-to go.
-
-## Deployment optimisation
-
-If you have files that you want tracked in your repo, but do not need deploying (for example, *.md, *.pdf, *.zip). Then add path or linux file match to the `.slugignore` file & these will not be deployed.
-
-Examples:
 ```
-path/to/ignore/
-bin/
-*.md
-*.pdf
-*.zip
+$ git push heroku production:master
 ```
 
-## Wiki
 
-* [Custom Domains](https://github.com/mhoofman/wordpress-heroku/wiki/Custom-Domains)
-* [Media Uploads](https://github.com/mhoofman/wordpress-heroku/wiki/Media-Uploads)
-* [Postgres Database Syncing](https://github.com/mhoofman/wordpress-heroku/wiki/Postgres-Database-Syncing)
-* [Setting Up a Local Environment on Linux (Apache)](https://github.com/mhoofman/wordpress-heroku/wiki/Setting-Up-a-Local-Environment-on-Linux-\(Apache\))
-* [Setting Up a Local Environment on Mac OS X](https://github.com/mhoofman/wordpress-heroku/wiki/Setting-Up-a-Local-Environment-on-Mac-OS-X)
-* [More...](https://github.com/mhoofman/wordpress-heroku/wiki)
+## Contains
+
+### 8-Addons
+- Heroku Postgres
+- PG Backups
+- PostgreSQL Studio
+- Sendgrid
+- Cloudinary
+- Memcached Cloud
+- Newrelic
+- Papertrail
+
+
+### 25-Plugins
+Default:Enable
+
+- Batcache Manager
+- Cloudinary
+- Disable WordPress Core Updates
+- Disable WordPress Plugin Updates
+- Gigaom New Relic
+- Google Analytics Dashboard for WP
+- JP Markdown
+- Memcached Cloud
+- Resize images before upload
+- SendGrid
+- WordPress Gzip Compression
+- WordPress HTTPS
+- WordPress Importer
+
+Default:Disable
+
+- Acunetix Secure WordPress
+- Akismet
+- All In One SEO Pack
+- Category Order and Taxonomy Terms Order
+- Contact Form 7
+- Google XML Sitemaps
+- PuSHPress
+- SyntaxHighlighter Evolved
+- Ultimate TinyMCE
+- WordPress Popular Posts
+- WP-Optimize
+- WP Social Bookmarking Light
+
+
+### 10-Themes
+- Hueman(http://alxmedia.se/themes/hueman/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/hueman/screenshot.png)
+
+- Fukasawa(http://www.andersnoren.se/teman/fukasawa-wordpress-theme/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/fukasawa/screenshot.png)
+
+- PORTFOLIO WORDPRESS THEME(https://www.gavick.com/wordpress-themes/portfolio,174)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/gk-portfolio/screenshot.png)
+
+- Griffin(https://wordpress.org/themes/griffin/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/griffin/screenshot.png)
+
+- Pure(http://www.gt3themes.com/wordpress-themes/pure/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/gt3-wp-pure/screenshot.png)
+
+- Clippy(http://www.s5themes.com/theme/clippy/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/clippy/screenshot.jpg)
+
+- DW Minion(http://www.designwall.com/wordpress/themes/dw-minion/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/dw-minion/screenshot.png)
+
+- DW Timeline(http://www.designwall.com/wordpress/themes/dw-timeline/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/dw-timeline/screenshot.png)
+
+- Bushwick(https://wordpress.org/themes/bushwick/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/bushwick/screenshot.png)
+
+- ARCHITEKT(http://dessign.net/architekt-theme/)
+
+![](https://raw.githubusercontent.com/ya-s-u/wp-on-heroku/production/wp-content/themes/architekttheme/screenshot.jpg)

@@ -1,2 +1,7 @@
 docs/
 resources/
+path/to/ignore/
+bin/
+*.md
+*.pdf
+*.zip
