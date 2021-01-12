@@ -2,7 +2,7 @@
 
 using with PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 
-[![Deploy](https://blog.logentries.com/wp-content/uploads/2014/09/deploy-to-heroku.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
+[![Deploy](https://blog.logentries.com/wp-content/uploads/2014/09/deploy-to-heroku.png)](https://heroku.com/deploy?template=https://github.com/sabarnix/wp-on-heroku/tree/production)
 
 
 ## One Click Installation *Basically Free
