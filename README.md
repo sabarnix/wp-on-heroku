@@ -8,7 +8,7 @@ using with PHP/nginx + PostgreSQL + Memcached + Cloudinary + Sendgrid
 ## One Click Installation *Basically Free
 Register [Heroku account](https://signup.heroku.com/www-header) and [Verify your credit info](https://devcenter.heroku.com/articles/account-verification#verification-requirement), then Click this button:point_down:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ya-s-u/wp-on-heroku/tree/production)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/sabarnix/wp-on-heroku/tree/production)
 
 done...finish! :tada::tada::tada:
 
